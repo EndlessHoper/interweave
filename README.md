@@ -11,7 +11,7 @@ curl -fsSL https://raw.githubusercontent.com/EndlessHoper/interweave/main/instal
 ```
 
 This will:
-1. Install Python dependencies (~2GB, includes torch and ML libraries)
+1. Install Python dependencies (~4.5GB total, includes torch and ML models)
 2. Download ML models (Kokoro TTS, Parakeet STT, Silero VAD)
 3. Register interweave with Claude Code
 
