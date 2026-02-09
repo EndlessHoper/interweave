@@ -53,6 +53,13 @@ Then add to `opencode.json`:
 }
 ```
 
+## Uninstall
+
+```bash
+uv tool uninstall interweave
+claude mcp remove interweave
+```
+
 ## Requirements
 
 - macOS with Apple Silicon
