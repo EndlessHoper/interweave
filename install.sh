@@ -17,7 +17,7 @@ fi
 echo "[1/3] Installing package and dependencies..."
 echo "      This may take a few minutes on first install."
 echo ""
-uv tool install --python ">=3.11" interweave 2>&1 || uv tool upgrade --python ">=3.11" interweave 2>&1
+uv tool install --force --python ">=3.11" interweave 2>&1
 echo ""
 
 # Download ML models
