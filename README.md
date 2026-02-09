@@ -53,6 +53,12 @@ Then add to `opencode.json`:
 }
 ```
 
+## Update
+
+```bash
+uv tool upgrade interweave
+```
+
 ## Uninstall
 
 ```bash
