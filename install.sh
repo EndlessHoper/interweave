@@ -17,14 +17,14 @@ fi
 echo "[1/3] Installing package and dependencies..."
 echo "      This may take a few minutes on first install."
 echo ""
-uv tool install --force --python ">=3.11" interweave 2>&1
+uv tool install --force --upgrade --python ">=3.11" interweave 2>&1
 echo ""
 
 # Download ML models
 echo "[2/3] Downloading ML models..."
 echo ""
 
-PYTHON="$(dirname "$(which interweave)")"/python
+PYTHON="$HOME/.local/share/uv/tools/interweave/bin/python"
 
 echo "      Silero VAD (voice activity detection)..."
 $PYTHON -c "from silero_vad import load_silero_vad; load_silero_vad(); print('      Done.')"
