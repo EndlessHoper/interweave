@@ -32,6 +32,10 @@ $PYTHON -c "from silero_vad import load_silero_vad; load_silero_vad(); print('  
 echo "      Parakeet MLX (speech-to-text)..."
 $PYTHON -c "import parakeet_mlx; parakeet_mlx.from_pretrained('animaslabs/parakeet-tdt-0.6b-v3-mlx'); print('      Done.')"
 
+echo "      Spacy model (text processing)..."
+uv pip install --python "$PYTHON" en-core-web-sm@https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.8.0/en_core_web_sm-3.8.0-py3-none-any.whl 2>&1
+echo ""
+
 echo "      Kokoro MLX (text-to-speech)..."
 $PYTHON -c "from mlx_audio.tts.utils import load_model; m = load_model('mlx-community/Kokoro-82M-bf16'); print('      Done.')"
 
