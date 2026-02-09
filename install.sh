@@ -14,10 +14,10 @@ if ! command -v uv &> /dev/null; then
 fi
 
 # Install the package and dependencies
-echo "📦 Installing dependencies (torch, mlx-audio, etc.)..."
+echo "📦 Installing package and dependencies (torch, mlx-audio, etc.)..."
 echo "   This may take a few minutes on first install."
 echo ""
-uv pip install --system interweave
+uv tool install --python ">=3.11" interweave
 
 # Download ML models
 echo ""
