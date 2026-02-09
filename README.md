@@ -6,24 +6,50 @@ Uses Kokoro MLX (TTS), Parakeet MLX (STT), and Silero VAD. Runs locally on Apple
 
 ## Install
 
-```
-claude mcp add interweave -- uvx interweave
-```
-
-### Other tools
-
-**Codex:**
-```
-codex mcp add interweave -- uvx interweave
+```bash
+curl -fsSL https://raw.githubusercontent.com/EndlessHoper/interweave/main/install.sh | bash
 ```
 
-**OpenCode** (`opencode.json`):
+This will:
+1. Install Python dependencies (~2GB, includes torch and ML libraries)
+2. Download ML models (Kokoro TTS, Parakeet STT, Silero VAD)
+3. Register interweave with Claude Code
+
+After install, start a new Claude Code session and talk.
+
+### Manual install
+
+If you prefer to install step by step:
+
+```bash
+uv pip install interweave
+interweave --warmup
+claude mcp add interweave -- interweave
+```
+
+### Codex
+
+```bash
+uv pip install interweave
+interweave --warmup
+codex mcp add interweave -- interweave
+```
+
+### OpenCode
+
+```bash
+uv pip install interweave
+interweave --warmup
+```
+
+Then add to `opencode.json`:
+
 ```json
 {
   "mcp": {
     "interweave": {
       "type": "local",
-      "command": ["uvx", "interweave"],
+      "command": ["interweave"],
       "enabled": true
     }
   }
@@ -35,3 +61,4 @@ codex mcp add interweave -- uvx interweave
 - macOS with Apple Silicon
 - Python 3.11+
 - Microphone and speakers
+- [uv](https://docs.astral.sh/uv/) (`curl -LsSf https://astral.sh/uv/install.sh | sh`)
