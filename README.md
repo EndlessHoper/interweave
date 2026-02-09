@@ -58,6 +58,11 @@ Then add to `opencode.json`:
 ```bash
 uv tool uninstall interweave
 claude mcp remove interweave
+
+# Optional: remove cached ML models (~2GB)
+rm -rf ~/.cache/huggingface/hub/models--mlx-community--Kokoro-82M-bf16
+rm -rf ~/.cache/huggingface/hub/models--animaslabs--parakeet-tdt-0.6b-v3-mlx
+rm -rf ~/.cache/torch/hub/snakers4_silero-vad_master
 ```
 
 ## Requirements
