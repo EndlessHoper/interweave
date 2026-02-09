@@ -212,7 +212,7 @@ class _AudioBuffer:
 
 class TTS:
     def __init__(self):
-        from mlx_audio.tts import load_model
+        from mlx_audio.tts.utils import load_model
 
         log.info("Loading Kokoro MLX: %s (voice=%s)", KOKORO_MLX_REPO, KOKORO_VOICE)
         t0 = time.monotonic()

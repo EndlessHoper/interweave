@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "interweave"
-version = "0.2.3"
+version = "0.2.4"
 description = "Voice I/O MCP server for Claude Code — speak and listen through your mic and speakers"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -17,7 +17,7 @@ dependencies = [
     "torch",
     "silero-vad",
     "parakeet-mlx",
-    "mlx-audio>=0.3",
+    "mlx-audio",
 ]
 
 [project.scripts]

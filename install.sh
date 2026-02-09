@@ -17,7 +17,7 @@ fi
 echo "[1/3] Installing package and dependencies..."
 echo "      This may take a few minutes on first install."
 echo ""
-uv tool install --force --upgrade --python ">=3.11" interweave 2>&1
+uv tool install --force --upgrade --python ">=3.11" --reinstall interweave 2>&1
 echo ""
 
 # Download ML models
@@ -33,7 +33,7 @@ echo "      Parakeet MLX (speech-to-text)..."
 $PYTHON -c "import parakeet_mlx; parakeet_mlx.from_pretrained('animaslabs/parakeet-tdt-0.6b-v3-mlx'); print('      Done.')"
 
 echo "      Kokoro MLX (text-to-speech)..."
-$PYTHON -c "from mlx_audio.tts import load_model; m = load_model('mlx-community/Kokoro-82M-bf16'); print('      Done.')"
+$PYTHON -c "from mlx_audio.tts.utils import load_model; m = load_model('mlx-community/Kokoro-82M-bf16'); print('      Done.')"
 
 echo ""
 
