@@ -23,7 +23,6 @@ If you prefer to install step by step:
 
 ```bash
 uv tool install --python ">=3.11" interweave
-interweave --warmup
 claude mcp add interweave -- interweave
 ```
 
@@ -31,7 +30,6 @@ claude mcp add interweave -- interweave
 
 ```bash
 uv tool install --python ">=3.11" interweave
-interweave --warmup
 codex mcp add interweave -- interweave
 ```
 
@@ -39,7 +37,6 @@ codex mcp add interweave -- interweave
 
 ```bash
 uv tool install --python ">=3.11" interweave
-interweave --warmup
 ```
 
 Then add to `opencode.json`:
