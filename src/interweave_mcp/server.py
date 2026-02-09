@@ -293,16 +293,24 @@ mcp_server = FastMCP("interweave_mcp", lifespan=lifespan)
 )
 async def interweave_speak_and_listen(text: str, ctx: Context) -> str:
     """Speak text aloud via TTS, then listen for the user's spoken response.
-    THIS IS THE PRIMARY VOICE TOOL. Use this for almost every interaction.
 
-    Speaks the full text first, then opens the mic and records until the
-    user pauses. Transcribes with Parakeet MLX and returns the text.
-    Always prefer this over interweave_speak so the conversation keeps flowing.
+    ONLY use this when you need the user's input to continue. Examples:
+    - Asking a question: "Should I skip this one or send a request?"
+    - Asking for confirmation: "I found 3 matches. Want me to go through them?"
+    - Asking for a decision you can't make yourself
+
+    Do NOT use this for status updates, progress reports, or informational
+    messages where you plan to keep working. Use interweave_speak instead
+    for those, so you don't block waiting for a reply the user doesn't
+    need to give.
+
+    Think of it this way: if you're going to do more work after speaking,
+    use interweave_speak. If you need the user to answer before you can
+    continue, use this.
 
     IMPORTANT — the text goes through a TTS voice engine. Write text that
     sounds natural when spoken aloud:
     - No asterisks, markdown, or formatting characters
-    - For URLs, say just the domain naturally (e.g. "github dot com slash user slash repo") — never say "https colon slash slash"
     - No bullet points, numbered lists, or headings
     - No parenthetical asides or footnotes
     - No emojis or special unicode characters
@@ -348,14 +356,22 @@ async def interweave_speak_and_listen(text: str, ctx: Context) -> str:
 async def interweave_speak(text: str, ctx: Context) -> str:
     """Speak text aloud via TTS without listening for a response.
 
-    RARELY USE THIS. Only for final goodbyes or closing statements where
-    the conversation is truly over. In almost all cases, use
-    interweave_speak_and_listen instead so the user can respond.
+    USE THIS when you're giving a status update and plan to keep working.
+    This is the right choice most of the time. Examples:
+    - "I'll go through the listings now." (then start browsing)
+    - "Skipping this one, no pets allowed." (then move to next)
+    - "Done, I sent 3 viewing requests." (final summary)
+    - "Let me check that for you." (then go do the work)
+
+    After speaking, you continue with your next action immediately.
+    The user hears you but doesn't need to reply.
+
+    Only use interweave_speak_and_listen instead when you genuinely
+    need the user to answer a question before you can proceed.
 
     IMPORTANT — the text goes through a TTS voice engine. Write text that
     sounds natural when spoken aloud:
     - No asterisks, markdown, formatting, emojis, or special characters
-    - For URLs, say just the domain naturally — never say "https colon slash slash"
     - No dashes of any kind — use commas or periods instead
     - No bullet points, numbered lists, or headings
     - Write clean, conversational prose only
