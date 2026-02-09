@@ -415,30 +415,7 @@ def _on_shutdown_signal(signum, frame):
     _shutdown.set()
 
 
-def warmup():
-    """Download and cache all ML models so the first real startup is fast."""
-    print("\n🎙️  Interweave — downloading models...\n")
-
-    print("  [1/3] Silero VAD (voice activity detection)...")
-    Recorder()
-    print("  ✓ Silero VAD ready\n")
-
-    print("  [2/3] Parakeet MLX (speech-to-text)...")
-    STT()
-    print("  ✓ Parakeet MLX ready\n")
-
-    print("  [3/3] Kokoro MLX (text-to-speech)...")
-    TTS()
-    print("  ✓ Kokoro MLX ready\n")
-
-    print("✅ All models downloaded. Interweave is ready to use.\n")
-
-
 def main():
-    if "--warmup" in sys.argv:
-        warmup()
-        return
-
     signal.signal(signal.SIGTERM, _on_shutdown_signal)
     signal.signal(signal.SIGINT, _on_shutdown_signal)
     atexit.register(_shutdown.set)
