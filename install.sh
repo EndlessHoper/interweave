@@ -17,7 +17,7 @@ fi
 echo "📦 Installing dependencies (torch, mlx-audio, etc.)..."
 echo "   This may take a few minutes on first install."
 echo ""
-uv pip install interweave
+uv pip install --system interweave
 
 # Download ML models
 echo ""

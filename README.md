@@ -22,7 +22,7 @@ After install, start a new Claude Code session and talk.
 If you prefer to install step by step:
 
 ```bash
-uv pip install interweave
+uv pip install --system interweave
 interweave --warmup
 claude mcp add interweave -- interweave
 ```
@@ -30,7 +30,7 @@ claude mcp add interweave -- interweave
 ### Codex
 
 ```bash
-uv pip install interweave
+uv pip install --system interweave
 interweave --warmup
 codex mcp add interweave -- interweave
 ```
@@ -38,7 +38,7 @@ codex mcp add interweave -- interweave
 ### OpenCode
 
 ```bash
-uv pip install interweave
+uv pip install --system interweave
 interweave --warmup
 ```
 
